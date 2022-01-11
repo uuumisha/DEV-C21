@@ -14,7 +14,7 @@ List::~List() {
 	}
 }
 
-// конструктор копирования
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 List::List(const List& other) : m_size(other.m_size) {
 	Head.pNext = &Tail;
 	Tail.pPrev = &Head;
@@ -28,7 +28,7 @@ List::List(const List& other) : m_size(other.m_size) {
 	}
 }
 
-//move конструктор копирования
+//move РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 List::List(List&& other) : m_size(other.m_size) {
 	if (other.m_size) {
 		Head.pNext = other.Head.pNext;
@@ -103,7 +103,7 @@ void List::DoEmpty() {
 	m_size = 0;
 }
 
-// сделать методами класса node или list
+// СЃРґРµР»Р°С‚СЊ РјРµС‚РѕРґР°РјРё РєР»Р°СЃСЃР° node РёР»Рё list
 void List::Sort(SORTFLAGS flag) {
 	if (m_size) {
 		bool val;
@@ -112,15 +112,15 @@ void List::Sort(SORTFLAGS flag) {
 		for (size_t i = 0; i < m_size - 1; i++) {
 			pn = Head.pNext;
 			while (pn->pNext != end) {
-				// выбор признака для сортировки
+				// РІС‹Р±РѕСЂ РїСЂРёР·РЅР°РєР° РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 				switch (flag) {
-				case AREA:			// сортировка по возрастанию площади объекта
+				case AREA:			// СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ РїР»РѕС‰Р°РґРё РѕР±СЉРµРєС‚Р°
 					val = pn->m_data->GetArea() > pn->pNext->m_data->GetArea();
 					break;
-				case DISTANCE:		// сортировка по удаленности от начала координат
+				case DISTANCE:		// СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓРґР°Р»РµРЅРЅРѕСЃС‚Рё РѕС‚ РЅР°С‡Р°Р»Р° РєРѕРѕСЂРґРёРЅР°С‚
 					val = pn->m_data->GetDistance() > pn->pNext->m_data->GetDistance();
 					break;
-				case FIGURECOLOR:	// сортировка по цвету фигуры
+				case FIGURECOLOR:	// СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С†РІРµС‚Сѓ С„РёРіСѓСЂС‹
 					val = pn->m_data->GetColor() > pn->pNext->m_data->GetColor();
 					break;
 				default:
@@ -141,7 +141,7 @@ void List::Sort(SORTFLAGS flag) {
 	}
 }
 
-// оператор присваивания
+// РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 List& List::operator=(const List& other) {
 	if (this != &other) {
 		Node *po, *pt;
@@ -196,7 +196,7 @@ List& List::operator=(const List& other) {
 	return *this;
 }
 
-//move  оператор присваивания
+//move  РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 List& List::operator=(List&& other) {
 
 	if (this != &other) {
@@ -224,7 +224,7 @@ std::ostream& operator<<(std::ostream& os, const List& list) {
 	return os;
 }
 
-// Записать список в файл
+// Р—Р°РїРёСЃР°С‚СЊ СЃРїРёСЃРѕРє РІ С„Р°Р№Р»
 void List::WriteList() const {
 	std::cout << "Enter Output File Name  - ";
 	char name[80];
@@ -235,7 +235,7 @@ void List::WriteList() const {
 	fout.close();
 }
 
-// Считать список из файла
+// РЎС‡РёС‚Р°С‚СЊ СЃРїРёСЃРѕРє РёР· С„Р°Р№Р»Р°
 void List::ReadList() {
 	std::cout << "Enter Input File Name  - ";
 	char name[80] = "", str[80] = "";
@@ -253,7 +253,7 @@ void List::ReadList() {
 		return;
 	}
 
-	// считываем размер списка
+	// СЃС‡РёС‚С‹РІР°РµРј СЂР°Р·РјРµСЂ СЃРїРёСЃРєР°
 	while (strcmp("with", str)) {
 		fin >> str;
 	}
@@ -262,11 +262,11 @@ void List::ReadList() {
 	if (size) {
 		while (true) {
 			str[0] = 0;
-			// считываем и анализируем окружность или прямоугольник
+			// СЃС‡РёС‚С‹РІР°РµРј Рё Р°РЅР°Р»РёР·РёСЂСѓРµРј РѕРєСЂСѓР¶РЅРѕСЃС‚СЊ РёР»Рё РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
 			while (strcmp("radius", str) && strcmp("vertexes:", str))
 				fin >> str;
 
-			// считываем параметры окружности
+			// СЃС‡РёС‚С‹РІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё
 			if (!strcmp("radius", str)) {
 				fin >> radius;
 
@@ -287,7 +287,7 @@ void List::ReadList() {
 					break;
 			}
 			else {
-				// считываем параметры прямоугольника
+				// СЃС‡РёС‚С‹РІР°РµРј РїР°СЂР°РјРµС‚СЂС‹ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°
 				int left, right, top, bottom;
 
 				while (fin.get() != '(');
