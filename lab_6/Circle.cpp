@@ -3,7 +3,7 @@
 #include <cmath>
 #include <typeinfo>
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Circle::Circle(int x_center, int y_center, int radius,  COLOR c) : Shape(c) {
 	m_x_center = x_center;
 	m_y_center = y_center;
@@ -15,12 +15,12 @@ Circle::Circle(int x_center, int y_center, int radius,  COLOR c) : Shape(c) {
 		m_radius = radius;
 }
 
-// Деструктор
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Circle::~Circle() {
 	//std::cout << "Now I am in Circle's destructor!\n";
 }
 
-// Конструктор с параметром класса прямоульников
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂРѕРј РєР»Р°СЃСЃР° РїСЂСЏРјРѕСѓР»СЊРЅРёРєРѕРІ
 Circle::Circle(const Rect &r) : Shape(r) {
 	int left, right, top, bottom;
 	r.GetAll(left, right, top, bottom);
