@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-// шаблон класса узла для односвязного списка
+// С€Р°Р±Р»РѕРЅ РєР»Р°СЃСЃР° СѓР·Р»Р° РґР»СЏ РѕРґРЅРѕСЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР°
 template <typename T> class Node {
 
 	Node<T>* pNext;
@@ -20,7 +20,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, MyStackList<T>& mystack2);
 };
 
-// шаблон класса односвязного списка
+// С€Р°Р±Р»РѕРЅ РєР»Р°СЃСЃР° РѕРґРЅРѕСЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР°
 template <typename T = int> class MyStackList {
 	int m_capacity = 0;
 	Node<T> Head;
@@ -53,7 +53,7 @@ public:
 			throw "Index MyStack2 out of range";
 	}
 
-	// либо развернуть на месте либо рекурсия
+	// Р»РёР±Рѕ СЂР°Р·РІРµСЂРЅСѓС‚СЊ РЅР° РјРµСЃС‚Рµ Р»РёР±Рѕ СЂРµРєСѓСЂСЃРёСЏ
 	friend std::ostream& operator<<(std::ostream& os, MyStackList<T>& mystack2) {
 		//Node<T> *start = mystack2.Head.pNext;
 		//for (int i = 0; i < mystack2.m_capacity; i++) {
@@ -62,7 +62,7 @@ public:
 		//}
 
 
-		Node<T> *prHead = nullptr; // Здесь в итоге окажется указатель на голову перевёрнутого списка.
+		Node<T> *prHead = nullptr; // Р—РґРµСЃСЊ РІ РёС‚РѕРіРµ РѕРєР°Р¶РµС‚СЃСЏ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіРѕР»РѕРІСѓ РїРµСЂРµРІС‘СЂРЅСѓС‚РѕРіРѕ СЃРїРёСЃРєР°.
 
 		while (prHead)
 		{
@@ -92,7 +92,7 @@ public:
 	
 	MyStackList() {}
 
-	// конструктор копирования
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	MyStackList(const MyStackList<T> &other) {
 		if (other.m_capacity) {
 			m_capacity = other.m_capacity;
@@ -106,7 +106,7 @@ public:
 		}
 	}
 
-	// move конструктор копирования
+	// move РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	MyStackList(MyStackList<T> &&tmp) {
 		m_capacity = tmp.m_capacity;
 		Head.pNext = tmp.Head.pNext;
@@ -114,7 +114,7 @@ public:
 		tmp.m_capacity = 0;
 	}
 
-	// оператор присваивания (с учетом реверсивности)
+	// РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ (СЃ СѓС‡РµС‚РѕРј СЂРµРІРµСЂСЃРёРІРЅРѕСЃС‚Рё)
 	MyStackList<T>& operator=(const MyStackList<T>& other) {
 		if (this != &other) {
 			//DoEmpty();
@@ -131,12 +131,12 @@ public:
 			Node<T> *start = &Head;
 			Node<T> *start_other = other.Head.pNext;
 			int i;
-			for (i = 0; i < min_capacity; i++) { // копируем ту чать данных, которая уже существует 
+			for (i = 0; i < min_capacity; i++) { // РєРѕРїРёСЂСѓРµРј С‚Сѓ С‡Р°С‚СЊ РґР°РЅРЅС‹С…, РєРѕС‚РѕСЂР°СЏ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ 
 				start->pNext->m_data = start_other->m_data;
 				start = start->pNext;
 				start_other = start_other->pNext;
 			}
-			if (m_capacity < other.m_capacity) { // создаем новые узлы при необходимости
+			if (m_capacity < other.m_capacity) { // СЃРѕР·РґР°РµРј РЅРѕРІС‹Рµ СѓР·Р»С‹ РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
 				for (; i < other.m_capacity; i++) {
 					new Node<T>(start, start_other->m_data);
 					start = start->pNext;
@@ -144,7 +144,7 @@ public:
 				}
 			}
 			else {
-				while (m_capacity > other.m_capacity) { // удаляем ненужные узлы при необходимости
+				while (m_capacity > other.m_capacity) { // СѓРґР°Р»СЏРµРј РЅРµРЅСѓР¶РЅС‹Рµ СѓР·Р»С‹ РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
 					start = Head.pNext;
 					for (int i = 0; i < m_capacity - 1; i++) start = start->pNext;
 					delete start;
@@ -156,7 +156,7 @@ public:
 		return *this;
 	}
 
-	// move оператор присваивания
+	// move РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	MyStackList<T>& operator=(MyStackList<T>&& other) {
 		if (this != &other) {
 			DoEmpty();
