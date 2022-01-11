@@ -2,7 +2,7 @@
 #include <iostream>
 #include <typeinfo>
 
-// вывод информации о векторе
+// РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІРµРєС‚РѕСЂРµ
 template <typename T> void print_vector_info(const T& v) {
 	std::cout << "capacity = " << v.capacity() << std::endl;
 	std::cout << "size = "     << v.size() << std::endl;
@@ -11,7 +11,7 @@ template <typename T> void print_vector_info(const T& v) {
 		std::cout << "v[" << i << "] = " << v[i] << std::endl;
 }
 
-// поиск заданного элемента
+// РїРѕРёСЃРє Р·Р°РґР°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 template <typename T, typename Y> bool isExist(const T& v, const Y& data) {
 	for (size_t i = 0; i < v.size(); i++) {
 		if (v[i] == data)
@@ -20,7 +20,7 @@ template <typename T, typename Y> bool isExist(const T& v, const Y& data) {
 	return false;
 }
 
-// удаление повторяющихся последовательностей
+// СѓРґР°Р»РµРЅРёРµ РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚РµР№
 template <typename T> void deleteRetryElements(T& v) {
 	size_t cnt = 0;
 	for (size_t i = 0; i < v.size() - 1; i++) {
@@ -38,7 +38,7 @@ template <typename T> void deleteRetryElements(T& v) {
 	}
 }
 
-// удаление из вектора всех дублей
+// СѓРґР°Р»РµРЅРёРµ РёР· РІРµРєС‚РѕСЂР° РІСЃРµС… РґСѓР±Р»РµР№
 template <typename T> void deleteEveryDubli(T& v) {
 	for (size_t i = 0; i < v.size(); i++) {
 		for (size_t j = i + 1; j < v.size(); j++) {
@@ -50,7 +50,7 @@ template <typename T> void deleteEveryDubli(T& v) {
 	}
 }
 
-// вывод информации о любом контейнере
+// РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р»СЋР±РѕРј РєРѕРЅС‚РµР№РЅРµСЂРµ
 template <typename T> void print_container_info(T& v) {
 	std::cout << "size = " << v.size() << std::endl;
 	typename T::iterator it = v.begin();
