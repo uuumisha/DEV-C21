@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Rect::Rect(int left, int right, int top, int bottom, COLOR c) : Shape(c) {
 
 	if (Check(left, right, top, bottom)) {
@@ -20,7 +20,7 @@ Rect::Rect(int left, int right, int top, int bottom, COLOR c) : Shape(c) {
 	}
 }
 
-// Конструктор без параметров
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 Rect::Rect() : Shape(RED) {
 	m_left		= 0;
 	m_right		= 0;
@@ -32,7 +32,7 @@ Rect::~Rect() {
 	//std::cout << "Now I am in Rect's destructor!\n";
 }
 
-// Растяжение прямоугольника на 4 разные дельты
+// Р Р°СЃС‚СЏР¶РµРЅРёРµ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РЅР° 4 СЂР°Р·РЅС‹Рµ РґРµР»СЊС‚С‹
 void Rect::InflateRect(int dleft, int dright, int dtop, int dbottom) {
 	if (Check(m_left - dleft, m_right + dright, m_top + dtop, m_bottom + dbottom))
 		std::cout << "Wrong delta parameters\n";
@@ -44,7 +44,7 @@ void Rect::InflateRect(int dleft, int dright, int dtop, int dbottom) {
 	}
 }
 
-// Конструктор копирования
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 Rect::Rect(const Rect &other) : Shape(other) {
 	m_left		= other.m_left;
 	m_right		= other.m_right;
@@ -52,7 +52,7 @@ Rect::Rect(const Rect &other) : Shape(other) {
 	m_bottom	= other.m_bottom;
 }
 
-// Растяжение прямоугольника на 2 разные дельты
+// Р Р°СЃС‚СЏР¶РµРЅРёРµ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РЅР° 2 СЂР°Р·РЅС‹Рµ РґРµР»СЊС‚С‹
 void Rect::InflateRect(int dwidth, int dhight) {
 	if (Check(m_left - dwidth, m_right + dwidth, m_top + dhight, m_bottom + dhight))
 		std::cout << "Wrong delta parameters\n";
@@ -64,7 +64,7 @@ void Rect::InflateRect(int dwidth, int dhight) {
 	}
 }
 
-// Задать private переменные (вершины)
+// Р—Р°РґР°С‚СЊ private РїРµСЂРµРјРµРЅРЅС‹Рµ (РІРµСЂС€РёРЅС‹)
 void Rect::SetAll(int left, int right, int top, int bottom) {
 	if (Check(left, right, top, bottom))
 		std::cout << "SetAll: wrong parameters.\n";
@@ -76,7 +76,7 @@ void Rect::SetAll(int left, int right, int top, int bottom) {
 	}
 }
 
-// Получить private переменные (вершины)
+// РџРѕР»СѓС‡РёС‚СЊ private РїРµСЂРµРјРµРЅРЅС‹Рµ (РІРµСЂС€РёРЅС‹)
 void Rect::GetAll(int &left, int &right, int &top, int &bottom) const {
 	left = m_left;
 	right = m_right;
