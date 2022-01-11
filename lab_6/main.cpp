@@ -18,19 +18,19 @@ int main() {
 	myList.AddToTail(c2);
 	myList.AddToTail(r2);
 
-	cout << myList;	// âûâîä òåêóùåãî ñîñòîÿíèÿ ñïèñêà
+	cout << myList;	// Ð²Ñ‹Ð²Ð¾Ð´ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ ÑÐ¾ÑÑ‚Ð¾ÑÐ½Ð¸Ñ ÑÐ¿Ð¸ÑÐºÐ°
 
 	myList.Sort(DISTANCE);
-	cout << myList;	// âûâîä îòñîðòèðîâàííîãî ñïèñêà
+	cout << myList;	// Ð²Ñ‹Ð²Ð¾Ð´ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ð³Ð¾ ÑÐ¿Ð¸ÑÐºÐ°
 
 
 	myList2.AddToHead(r1);
 	myList2 = myList;
 	myList2.RemoveOne(c1);
 
-	myList.WriteList();	// çàïèñü ñïèñêà â ôàéë
-	mylist3.ReadList();	// ÷òåíèå ñïèñêà èç ôàéëà
-	cout << mylist3;	// âûâîä ïðî÷èòàííîãî èç ôàéëà ñïèñêà íà ýêðàí
+	myList.WriteList();	// Ð·Ð°Ð¿Ð¸ÑÑŒ ÑÐ¿Ð¸ÑÐºÐ° Ð² Ñ„Ð°Ð¹Ð»
+	mylist3.ReadList();	// Ñ‡Ñ‚ÐµÐ½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ° Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð°
+	cout << mylist3;	// Ð²Ñ‹Ð²Ð¾Ð´ Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð° ÑÐ¿Ð¸ÑÐºÐ° Ð½Ð° ÑÐºÑ€Ð°Ð½
 
 	return 0;
 }
