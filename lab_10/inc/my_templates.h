@@ -8,7 +8,7 @@
 #include <queue>
 #include "Point.h"
 
-// вывод информации о любом базовом контейнере
+// РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р»СЋР±РѕРј Р±Р°Р·РѕРІРѕРј РєРѕРЅС‚РµР№РЅРµСЂРµ
 template <typename T> void print_container_info(const T& v) {
 	std::cout << typeid(T).name() << std::endl;
 	std::cout << "size = " << v.size() << std::endl;
@@ -30,7 +30,7 @@ template <typename T, typename Y> const T& getContTopVal(const queue<T, Y>& cont
 }
 
 
-// вывод информации о любом производном контейнере
+// РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р»СЋР±РѕРј РїСЂРѕРёР·РІРѕРґРЅРѕРј РєРѕРЅС‚РµР№РЅРµСЂРµ
 template <typename T> void print_nonbase_container_info(T cont) {
 	std::cout << typeid(T).name() << std::endl;
 	std::cout << "size = " << cont.size() << std::endl;
